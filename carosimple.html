@@ -5,40 +5,35 @@
     <title>Title</title>
 </head>
 <body>
-    <h3>Caro Game Simple</h3>
-    <p id="carogame" />
-    <input type="button" value="Change Value" onclick="changeValue()">
+<h1>Bàn cờ Caro</h1><br>
+<p id = banCo></p><br>
+<input type="button" value="Change Value" onclick="changeValue()">
 <script>
-    let b = document.getElementById("carogame ");
-
-    let board = [];
-    let data = "";
-    for (let i = 0; i < 5; i++) {
-        board[i] = [0, 0, 0, 0, 0];
+    let banco = [];
+    let inbanco = "";
+    for(var i = 0; i<5; i++){
+        banco[i] = new Array(0, 0, 0, 0, 0);
     }
-
-    for (let i = 0; i < 5; i++) {
-        data += "<br/>";
-        for (let j = 0; j < 5; j++) {
-            data += board[i][j] + "&nbsp;&nbsp;";
+    for (var i = 0; i < 5; i++){
+        inbanco += "<br/>";
+        for (var j = 0; j < 5; j++){
+            inbanco += banco[i][j] + "&nbsp;&nbsp";
         }
     }
-
-    data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>";
-    b.innerHTML = data;
+    document.getElementById("banCo").innerHTML = inbanco;
     function changeValue() {
-        let positionX = prompt("X: ");
-        let positionY = prompt("Y: ");
+        let inbanco = "";
+        let hang = parseInt(prompt(' doi ky tu hang so'));
+        let cot  = parseInt(prompt(' doi ky tu cot so'));
         data = "";
-        board[positionX][positionY] = "x";
-        for (let i = 0; i < 5; i++) {
-            data += "<br/>";
-            for (let j = 0; j < 5; j++) {
-                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+        banco[hang - 1][cot - 1] = "x";
+        for (var i = 0; i < 5; i++){
+            inbanco += "<br/>";
+            for (var j = 0; j < 5; j++){
+                inbanco += banco[i][j] + "&nbsp;&nbsp";
             }
         }
-        data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>";
-        b.innerHTML = "<hr/>" + data;
+        document.getElementById("banCo").innerHTML = inbanco;
     }
 </script>
 </body>
